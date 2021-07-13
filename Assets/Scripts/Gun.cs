@@ -8,6 +8,9 @@ public class Gun : MonoBehaviour
     public float range = 100f;
 
     public Camera cam;
+
+    public ParticleSystem boom;
+    
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
@@ -18,6 +21,7 @@ public class Gun : MonoBehaviour
 
     void Shoot()
     {
+        boom.Play();
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
