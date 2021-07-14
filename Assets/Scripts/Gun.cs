@@ -8,8 +8,9 @@ public class Gun : MonoBehaviour
     public float range = 100f;
 
     public Camera cam;
-
     public ParticleSystem boom;
+    
+    
     
     void Update()
     {
@@ -25,15 +26,15 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
 
+            
             Enemy enemy = hit.transform.GetComponent<Enemy>();
 
-            if (enemy != null)
+            if (! hit.transform.CompareTag("Player") && enemy != null)
             {
                 enemy.MakeDamage(damage);
             }
-            
         }
     }
 }
