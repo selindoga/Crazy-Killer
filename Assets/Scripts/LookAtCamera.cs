@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LookAtCamera : MonoBehaviour
 {
+    public GameObject Camera;
     public Transform ObjectToLook;
     void Update()
     {
