@@ -1,16 +1,27 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    public float health = 30f;
+    public float InitialHealth = 30f;
+    private float Health;
+    public Image HealthBar;
+
+    private void Start()
+    {
+        Health = InitialHealth;
+    }
 
     public void MakeDamage(float damageTaken)
     {
-        health -= damageTaken;
+        Health -= damageTaken;
+
+        HealthBar.fillAmount = Health / InitialHealth;
         
-        if (health <= 0)
+        if (Health <= 0)
         {
             Die();
         }
