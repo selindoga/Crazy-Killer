@@ -6649,7 +6649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036aa7f5ccb18e94bb182cc0c1d9271d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 6
+  damage: 5
   range: 100
   cam: {fileID: 963194227}
   boom: {fileID: 1372527411}

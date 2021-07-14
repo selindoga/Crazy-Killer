@@ -7,14 +7,14 @@ public class Gun : MonoBehaviour
     public float damage = 10f;
     public float range = 100f;
 
-    // to shoot automatically when pressed down
+    
     
     // public float fireRate = 15f;
+    // private float timeToFire = 0f;
     
     public Camera cam;
     public ParticleSystem boom;
     
-    // private float timeToFire = 0f;
     
     void Update()
     {
@@ -26,7 +26,7 @@ public class Gun : MonoBehaviour
 
     // void Update()
     // {
-    //     if (Input.GetButtonDown("Fire1") && Time.time >= timeToFire)
+    //     if (Input.GetButton("Fire1") && Time.time >= timeToFire)
     //     {
     //         timeToFire = Time.time + 1f / fireRate;
     //         Shoot();
