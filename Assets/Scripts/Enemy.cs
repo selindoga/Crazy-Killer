@@ -7,9 +7,9 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
-    private float InitialHealth;
-    private float Health;
-    public Image HealthBar;
+    private float InitialEnemyHealth;
+    private float EnemyHealth;
+    public Image EnemyHealthBar;
     
     private GameObject Player;
     private Vector3 vector;
@@ -17,10 +17,10 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        InitialHealth = Random.Range(15f, 34f);
+        InitialEnemyHealth = Random.Range(15f, 34f);
         followingSpeed = Random.Range(5f, 10f);
         
-        Health = InitialHealth;
+        EnemyHealth = InitialEnemyHealth;
         Player = GameObject.Find("Player");
     }
 
@@ -31,17 +31,17 @@ public class Enemy : MonoBehaviour
 
     public void MakeDamage(float damageTaken)
     {
-        Health -= damageTaken;
+        EnemyHealth -= damageTaken;
 
-        HealthBar.fillAmount = Health / InitialHealth;
+        EnemyHealthBar.fillAmount = EnemyHealth / InitialEnemyHealth;
         
-        if (Health <= 0)
+        if (EnemyHealth <= 0)
         {
             Die();
         }
     }
 
-    void Die()
+    private void Die()
     {
         Destroy(gameObject);
     }

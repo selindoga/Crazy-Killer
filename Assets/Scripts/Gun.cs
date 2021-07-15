@@ -6,7 +6,7 @@ public class Gun : MonoBehaviour
 {
     public float damage = 5f;
     public float range = 100f;
-    
+
     public GameObject shootingPoint;
     public ParticleSystem boom;
     
