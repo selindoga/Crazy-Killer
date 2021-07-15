@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("collided with enemy");
         MakeDamageToPlayer(TakenDamage);
     }
 
