@@ -3,19 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
-    public float InitialHealth = 30f;
+    private float InitialHealth;
     private float Health;
     public Image HealthBar;
     
     private GameObject Player;
     private Vector3 vector;
-    public float followingSpeed = 3.7f;
+    private float followingSpeed;
 
     private void Start()
     {
+        InitialHealth = Random.Range(15f, 34f);
+        followingSpeed = Random.Range(5f, 10f);
+        
         Health = InitialHealth;
         Player = GameObject.Find("Player");
     }
