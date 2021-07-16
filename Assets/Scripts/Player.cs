@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public Image PlayerHealthBar;
 
     public float TakenDamage = 5f;
+    private MainMenu _mainMenu;
 
     private void Start()
     {
@@ -39,6 +40,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        _mainMenu.GetComponent<MainMenu>().GameLost();
         Debug.Log("I just died");
     }
 }
