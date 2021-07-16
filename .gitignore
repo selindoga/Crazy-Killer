@@ -71,11 +71,4 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
 
-/[Aa]ssets/External Assets/Weapons/
-/[Aa]ssets/Weapons.meta
-/[Aa]ssets/External Assets/Low Poly Forest Pack/
-/[Aa]ssets/Low Poly Forest Pack.meta
-/[Aa]ssets/External Assets/JMO Assets/
-/[Aa]ssets/JMO Assets.meta
-/[Aa]ssets/External Assets/EffectExamples/
-/[Aa]ssets/EffectExamples.meta
+/[Aa]ssets/External Assets/
