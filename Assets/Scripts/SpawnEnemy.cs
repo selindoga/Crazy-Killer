@@ -6,9 +6,12 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     public GameObject ZombiEnemy;
-    private int SpawnedEnemy;
     
-
+    private int SpawnedEnemy;
+    public int TotalSpawnedEnemy = 5;
+    
+    private float WaitToSpawn = 5f;
+    
     void Start()
     {
         StartCoroutine(Spawn());
@@ -20,11 +23,11 @@ public class SpawnEnemy : MonoBehaviour
         {
             Instantiate(ZombiEnemy, gameObject.transform);
             SpawnedEnemy++;
-            if (SpawnedEnemy >= 5)
+            if (SpawnedEnemy >= TotalSpawnedEnemy)
             {
                 break;
             }
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(WaitToSpawn);
         }
     }
 }

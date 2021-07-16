@@ -19,7 +19,10 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        MakeDamageToPlayer(TakenDamage);
+        if (other.gameObject.CompareTag("Enemy")) // even tho only enemy can collide w/ player
+        {
+            MakeDamageToPlayer(TakenDamage);
+        }
     }
 
     public void MakeDamageToPlayer(float damageTaken)
