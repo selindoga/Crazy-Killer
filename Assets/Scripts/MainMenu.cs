@@ -34,6 +34,7 @@ public class MainMenu : MonoBehaviour
     {
         playerDied = false;
         playerWon = false;
+        GameManager.killedEnemiesNo = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
