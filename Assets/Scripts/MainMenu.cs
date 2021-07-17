@@ -49,9 +49,8 @@ public class MainMenu : MonoBehaviour
         GameOver.SetActive(true);
     }
     
-    public void GameWon() 
+    public void GameWon() // if player kills the big zombie cube boss
     {
-        // if player kills the big zombie cube boss (unfortunately not created that boss yet)
         Main_Menu.SetActive(false);
         Victory.SetActive(true);
     }

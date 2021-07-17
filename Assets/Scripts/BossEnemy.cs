@@ -14,6 +14,7 @@ public class BossEnemy : MonoBehaviour
     private Vector3 vector;
     private float followingSpeed = 9f;
 
+
     private void Start()
     {
         BossHealth = InitialBossHealth;
@@ -37,14 +38,13 @@ public class BossEnemy : MonoBehaviour
         }
     }
 
-    private void BossDie()
+    private void BossDie() // make player win
     {
         gameObject.SetActive(false);
-        // make player win
         Player.PlayerWin();
     }
     
-    void FollowPlayer() // rewrite this part with animation code
+    void FollowPlayer()
     {
         vector = new Vector3(PlayerObject.transform.position.x, gameObject.transform.position.y, PlayerObject.transform.position.z);
         transform.LookAt(vector);

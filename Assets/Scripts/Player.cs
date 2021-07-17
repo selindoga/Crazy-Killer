@@ -6,19 +6,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
-{ 
-    // I have to admit this will be the worst code ever
-    
+{
+
     private float InitialPlayerHealth = 50f;
     private float PlayerHealth;
     
     public Image PlayerHealthBar;
 
-    public float TakenDamage = 5f; 
-    // maybe the damage taken changes depending on the enemy type
-    // (for future updates)
+    private float TakenDamage = 5f;
+    private float TakenDamageFromBoss = 3.8f;
     
-
     private void Start()
     {
         PlayerHealth = InitialPlayerHealth;
@@ -36,7 +33,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Boss"))
         {
-            MakeDamageToPlayer(TakenDamage);
+            MakeDamageToPlayer(TakenDamageFromBoss * Time.deltaTime);
         }
     }
 
