@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public Image PlayerHealthBar;
 
     private float TakenDamage = 5f;
-    private float TakenDamageFromBoss = 6.5f;
+    private float TakenDamageFromBoss = 8f;
     
     private void Start()
     {
