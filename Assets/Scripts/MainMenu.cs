@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,40 +11,72 @@ public class MainMenu : MonoBehaviour
     public GameObject HowToPlayMenu;
     public GameObject Main_Menu;
     public GameObject AllMainMenu;
-    
-    // public GameObject BackButton;
-    
+
+    public static bool playerDied;
+    public static bool playerWon;
+
+
+    private void Start()
+    {
+        if (playerDied)
+        {
+            GameLost();
+        }
+
+        if (playerWon)
+        {
+            GameWon();
+        }
+    }
+
     public void PlayGame()
     {
+        playerDied = false;
+        playerWon = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
     {
+        playerDied = false;
+        playerWon = false;
         Application.Quit();
-        Debug.Log("game quit!");
     }
 
-    public void GameLost()
+    public void GameLost() // if player died
     {
         Main_Menu.SetActive(false);
         GameOver.SetActive(true);
     }
     
-    public void GameWon()
+    public void GameWon() 
     {
+        // if player kills the big zombie cube boss (not created that boss yet unfortunately)
         Main_Menu.SetActive(false);
         Victory.SetActive(true);
     }
 
     public void HowToPlayButton()
     {
+        GameOver.SetActive(false);
+        Victory.SetActive(false);
         AllMainMenu.SetActive(false);
         HowToPlayMenu.SetActive(true);
     }
 
     public void GoBack()
     {
+        // Main_Menu.SetActive(true);
+        if (playerDied)
+        {
+            GameOver.SetActive(true);
+        }
+
+        if (playerWon)
+        {
+            Victory.SetActive(true);
+        }
+        
         AllMainMenu.SetActive(true);
         HowToPlayMenu.SetActive(false);
     }
