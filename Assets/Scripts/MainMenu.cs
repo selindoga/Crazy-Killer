@@ -11,7 +11,8 @@ public class MainMenu : MonoBehaviour
     public GameObject HowToPlayMenu;
     public GameObject Main_Menu;
     public GameObject AllMainMenu;
-
+    public GameObject Credit;
+    
     public static bool playerDied;
     public static bool playerWon;
 
@@ -63,6 +64,14 @@ public class MainMenu : MonoBehaviour
         HowToPlayMenu.SetActive(true);
     }
 
+    public void CreditButton()
+    {
+        GameOver.SetActive(false);
+        Victory.SetActive(false);
+        AllMainMenu.SetActive(false);
+        Credit.SetActive(true);
+    }
+
     public void GoBack()
     {
         // Main_Menu.SetActive(true);
@@ -78,5 +87,6 @@ public class MainMenu : MonoBehaviour
         
         AllMainMenu.SetActive(true);
         HowToPlayMenu.SetActive(false);
+        Credit.SetActive(false);
     }
 }
