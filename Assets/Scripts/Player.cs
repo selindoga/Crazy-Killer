@@ -2,16 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
-{
+{ 
+    // I have to admit this will be the worst code ever
+    
     private float InitialPlayerHealth = 50f;
     private float PlayerHealth;
+    
     public Image PlayerHealthBar;
 
-    public float TakenDamage = 5f;
-    private MainMenu _mainMenu;
+    public float TakenDamage = 5f; 
+    // maybe the damage taken changes depending on the enemy type
+    // (for future updates)
+    
 
     private void Start()
     {
@@ -20,7 +26,15 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy")) // even tho only enemy can collide w/ player
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            MakeDamageToPlayer(TakenDamage);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("Boss"))
         {
             MakeDamageToPlayer(TakenDamage);
         }
@@ -34,13 +48,23 @@ public class Player : MonoBehaviour
         
         if (PlayerHealth <= 0)
         {
-            Die();
+            PlayerDie();
         }
     }
 
-    private void Die()
+    private void PlayerDie() // if player dies = player looses
     {
-        _mainMenu.GetComponent<MainMenu>().GameLost();
-        Debug.Log("I just died");
+        MainMenu.playerDied = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    } 
+
+    public static void PlayerWin() // call this method when boss got killed
+    {
+        MainMenu.playerWon = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

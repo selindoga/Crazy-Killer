@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public float damage = 5f;
+    public float damage = 9f;
     public float range = 100f;
 
     public GameObject shootingPoint;
     public ParticleSystem boom;
+
+    private Enemy enemy;
+    private BossEnemy boss;
     
     
     void Update()
@@ -25,11 +28,15 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(shootingPoint.transform.position, shootingPoint.transform.forward, out hit, range))
         {
-            Enemy enemy = hit.transform.GetComponent<Enemy>();
-
-            if (enemy != null)
+            if (hit.transform.gameObject.CompareTag("Enemy"))
             {
-                enemy.MakeDamage(damage);
+                enemy = hit.transform.GetComponent<Enemy>();
+                enemy.MakeDamageToEnemy(damage);
+            } 
+            else if (hit.transform.gameObject.CompareTag("Boss"))
+            {
+                boss = hit.transform.GetComponent<BossEnemy>();
+                boss.MakeDamageToBoss(damage);
             }
         }
     }
