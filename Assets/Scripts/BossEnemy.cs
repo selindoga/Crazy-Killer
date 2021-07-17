@@ -40,8 +40,8 @@ public class BossEnemy : MonoBehaviour
 
     private void BossDie() // make player win
     {
-        gameObject.SetActive(false);
         Player.PlayerWin();
+        gameObject.SetActive(false);
     }
     
     void FollowPlayer()

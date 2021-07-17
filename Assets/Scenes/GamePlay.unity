@@ -271,7 +271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &82350675
 Transform:
   m_ObjectHideFlags: 0
@@ -561,7 +561,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &200690472
 Transform:
   m_ObjectHideFlags: 0
@@ -3758,6 +3758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14daac623f14f984fb0f0c915a8eaf52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BossZombie: {fileID: 1957662465}
 --- !u!4 &1250256563
 Transform:
   m_ObjectHideFlags: 0

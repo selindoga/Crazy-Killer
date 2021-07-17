@@ -5,14 +5,15 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static int killedEnemiesNo;
-    private static int totalEnemies = SpawnEnemy.TotalSpawnedEnemy * 4;
+    public static int killedEnemiesNo = 0;
+    private static int totalEnemies ;
 
-    private GameObject BossZombie;
-    
+    public GameObject BossZombie;
+
     private void Start()
     {
-        BossZombie = GameObject.Find("BossZombie");
+        totalEnemies = SpawnEnemy.TotalSpawnedEnemy * 4;
+        BossZombie.SetActive(false);
     }
 
     private void Update()
