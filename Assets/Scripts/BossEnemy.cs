@@ -44,7 +44,7 @@ public class BossEnemy : MonoBehaviour
         gameObject.SetActive(false);
     }
     
-    void FollowPlayer()
+    void FollowPlayer() //todo: rewrite this part so that the boss will be able to follow the player
     {
         vector = new Vector3(PlayerObject.transform.position.x, gameObject.transform.position.y, PlayerObject.transform.position.z);
         transform.LookAt(vector);
