@@ -1,4 +1,4 @@
 # Crazy-Killer
 An fps game 
 
-itchio link :
+itchio link : https://selindoga.itch.io/crazy-killer/
