@@ -7,12 +7,11 @@ public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
     
-    public float speed = 12f;
-    public float gravity = -9.81f;
-    public float jumpHeight = 6f;
-    public float groundDistance = 0.4f;
-    
-    
+    private float speed = 25f;
+    private float gravity = -28f;
+    private float jumpHeight = 4.5f;
+    private float groundDistance = 0.4f;
+
     public Transform groundCheck;
     public LayerMask groundMask;
     
@@ -38,8 +37,7 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = (float) Math.Sqrt(jumpHeight * -2f * gravity);
         }
-        
-        
+
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 

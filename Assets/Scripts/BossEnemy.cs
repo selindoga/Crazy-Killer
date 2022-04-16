@@ -1,4 +1,6 @@
-
+using System;
+using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,11 +11,9 @@ public class BossEnemy : MonoBehaviour
     public Image BossHealthBar;
     
     private GameObject PlayerObject;
-    private Vector3 vector;
     private float followingSpeed = 9f;
 
-
-    private void Start()
+    private void Awake()
     {
         BossHealth = InitialBossHealth;
         PlayerObject = GameObject.Find("Player");
@@ -42,10 +42,11 @@ public class BossEnemy : MonoBehaviour
         gameObject.SetActive(false);
     }
     
-    void FollowPlayer() //todo: rewrite this part so that the boss will be able to follow the player
+    void FollowPlayer()
     {
-        vector = new Vector3(PlayerObject.transform.position.x, gameObject.transform.position.y, PlayerObject.transform.position.z);
-        transform.LookAt(vector);
+        Vector3 _playerPos = PlayerObject.transform.position;
+        Vector3 _vector = new Vector3(_playerPos.x, gameObject.transform.position.y, _playerPos.z);
+        transform.LookAt(_vector);
         transform.Translate((Vector3.forward) * (followingSpeed * Time.deltaTime));
     }
 }
