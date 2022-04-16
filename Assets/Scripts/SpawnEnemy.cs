@@ -6,13 +6,9 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     public GameObject ZombiEnemy;
-    
     private int SpawnedEnemy;
-    
-    public static int TotalSpawnedEnemy = 5;
-    
+    public static int TotalSpawnedEnemy = 5; 
     private float WaitToSpawn = 5f;
-    
     void Start()
     {
         StartCoroutine(Spawn());
